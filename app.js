@@ -1,17 +1,14 @@
 'use strict'
 
-const switcher = document.querySelector('.btn');
+function changeColor(id) {
+    const el = document.querySelector(`.btn-${id}`).classList;
 
-switcher.addEventListener('click', function() {
-    document.body.classList.toggle('dark-theme')
-
-    var className = document.body.className;
-    if (className == "light-theme") {
-        this.textContent = "Dark";
-        console.log("dark");
-    } else {
-        this.textContent = "Light";
-        console.log("light");
+    switch (id) {
+        case 0:
+            el.toggle('red')
+            break;
+        case 1:
+            el.toggle('blue');
+            break;
     }
-
-});
+}
