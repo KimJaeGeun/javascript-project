@@ -1,14 +1,19 @@
-'use strict'
+import { test } from './src/functions/element.js'
+let btn = document.getElementsByClassName('btn')
 
-function changeColor(id) {
-    const el = document.querySelector(`.btn-${id}`).classList;
-
-    switch (id) {
-        case 0:
-            el.toggle('red')
+function changeColor(evt) {
+    const el = evt.currentTarget
+    switch (evt.currentTarget.id) {
+        case 'red':
+            el.classList.toggle('red');
+            test('red');
             break;
-        case 1:
-            el.toggle('blue');
+        case 'blue':
+            el.classList.toggle('blue');
+            test('blue');
             break;
     }
 }
+console.log(typeof btn)
+btn['red'].addEventListener("click", changeColor)
+btn['blue'].addEventListener("click", changeColor)
