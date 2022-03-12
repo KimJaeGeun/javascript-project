@@ -5,16 +5,17 @@ let btn = document.getElementsByClassName('btn')
 
 function changeColor(evt) {
     const el = evt.currentTarget
-    switch (evt.currentTarget.id) {
-        case 'red':
-            el.classList.toggle('red');
-            break;
-        case 'blue':
-            el.classList.toggle('blue');
-            break;
+    if (!isEmpty(el)) {
+        switch (evt.currentTarget.id) {
+            case 'red':
+                el.classList.toggle('red');
+                break;
+            case 'blue':
+                el.classList.toggle('blue');
+                break;
+        }
     }
 }
 Array.from(btn);
-console.log(typeof btn)
 btn['red'].addEventListener("click", changeColor)
 btn['blue'].addEventListener("click", changeColor)
