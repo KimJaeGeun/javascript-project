@@ -4,6 +4,7 @@
     --red: #ff0000;
     --blue: #0000ff;
     --green: #00FF00;
+    --grey: #505050;
     --white: #ffffff;
     --black: #000000;
 }
@@ -27,6 +28,14 @@ li {
 
 .blue {
     --bg: var(--blue)
+}
+
+.grey {
+    --bg: var(--grey)
+}
+
+.green {
+    --bg: var(--green)
 }
 
 .btn:focus {
