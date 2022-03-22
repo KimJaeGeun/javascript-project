@@ -3,7 +3,8 @@
 :root {
     --red: #ff0000;
     --blue: #0000ff;
-    --green: #00FF00;
+    --green: #00ff00;
+    --yellow: #ffff00;
     --grey: #505050;
     --white: #ffffff;
     --black: #000000;
@@ -36,6 +37,10 @@ li {
 
 .green {
     --bg: var(--green)
+}
+
+.yellow {
+    --bg: var(--yellow)
 }
 
 .btn:focus {
