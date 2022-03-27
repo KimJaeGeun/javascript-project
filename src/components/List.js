@@ -1,77 +1,71 @@
 // module내 import의 경우 로컬 index.html은 js를 인식하지않아 에러표시됨
 // TODO: value체크 함수 이용 코드 작성
-import { isEmpty } from '../functions/checkValue.js'
+import { isEmpty } from '../functions/checkValue.js';
+import { STATUS_LIST } from '../mappings/const.js';
 
-// const list = document.querySelector('#list');
 
 let state = {
     statusList: [{
-            type: 'Progress',
-            status: false,
-            buttonColor: 'blue'
+            name: 'progress',
+            selected: false,
         },
         {
-            type: 'pending',
-            status: false,
-            buttonColor: 'grey'
+            name: 'pending',
+            selected: false,
         },
         {
-            type: 'complite',
-            status: false,
-            buttonColor: 'green'
+            name: 'complite',
+            selected: false,
         },
         {
-            type: 'test',
-            status: false,
-            buttonColor: 'yellow'
+            name: 'test',
+            selected: false,
         },
         {
-            type: 'bug',
-            status: false,
-            buttonColor: 'red'
+            name: 'bug',
+            selected: false,
         },
     ],
 }
 const { statusList } = state;
 
 function listRender(comp) {
-    comp.innerHTML = `
-                        <ul>
-                            ${ statusList.map( status =>  createList(status.type) )}
-                        </ul>
-                    `;
-    let btn = document.getElementsByClassName('btn')
+    const testComp = document.querySelector('#list');
+    console.log(testComp)
+    testComp.innerHTML = statusList.map(status => createList(status.name)).join(' ')
+
+    let btn = document.getElementsByClassName('btn_box')
     Array.from(btn).map(item => item.addEventListener("click", changeStutas));
-}
+};
 
 function createList(value) {
-    return `<li class="list-item" id="${value}">
-                <button type="button" id="${value}" class="btn">${value}</button>
-            </li>`;
+    return `<div id="${value}" class="btn_box">${value}</div>`;
 }
 
 function changeStutas(evt) {
     const el = evt.currentTarget
     const selectedTarget = evt.currentTarget.id
-    let selectedStatus = (selected) => statusList.filter(item => item.type === selected).status = true;
+    let selectedStatus = (selected) => statusList.filter(item => item.name === selected).selected = true;
 
     if (!isEmpty(el)) {
+        let toggleColor = (color) => el.classList.toggle(color);
+
         selectedStatus(selectedTarget);
         switch (selectedTarget) {
-            case 'Progress':
-                el.classList.toggle('blue');
+            case STATUS_LIST.PROGRESS.NAME:
+                toggleColor(STATUS_LIST.PROGRESS.COLOR);
                 break;
-            case 'pending':
-                el.classList.toggle('grey');
+            case STATUS_LIST.PENDING.NAME:
+                toggleColor(STATUS_LIST.PENDING.COLOR);
                 break;
-            case 'complite':
-                el.classList.toggle('green');
+            case STATUS_LIST.COMPLITE.NAME:
+                toggleColor(STATUS_LIST.COMPLITE.COLOR);
                 break;
-            case 'test':
-                el.classList.toggle('yellow');
+            case STATUS_LIST.TEST.NAME:
+                toggleColor(STATUS_LIST.TEST.COLOR);
                 break;
-            case 'bug':
-                el.classList.toggle('red');
+            case STATUS_LIST.BUG.NAME:
+                toggleColor(STATUS_LIST.BUG.COLOR);
                 break;
         }
     }

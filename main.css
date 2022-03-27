@@ -1,3 +1,5 @@
+@import './src/assets/css/dropdown.css';
+
 /* css 변수화 */
 
 :root {
@@ -15,12 +17,15 @@
     background-color: var(--bg);
 }
 
-li {
-    list-style: circle;
+#list {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.list {
-    list-style: square;
+.btn_box {
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 0.5em 1em;
 }
 
 .red {
