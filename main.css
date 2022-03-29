@@ -17,6 +17,11 @@
     background-color: var(--bg);
 }
 
+#app {
+    display: flex;
+    justify-content: space-around;
+}
+
 #list {
     display: flex;
     justify-content: space-evenly;

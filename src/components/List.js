@@ -29,10 +29,9 @@ let state = {
 }
 const { statusList } = state;
 
-function listRender(comp) {
-    const testComp = document.querySelector('#list');
-    console.log(testComp)
-    testComp.innerHTML = statusList.map(status => createList(status.name)).join(' ')
+function listRender() {
+    const comp = document.querySelector('#list');
+    comp.innerHTML = statusList.map(status => createList(status.name)).join(' ')
 
     let btn = document.getElementsByClassName('btn_box')
     Array.from(btn).map(item => item.addEventListener("click", changeStutas));

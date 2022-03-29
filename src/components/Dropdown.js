@@ -1,24 +1,14 @@
-import { STATUS_LIST } from '../mappings/const.js';
-
 let state = {
     statusList: [{
-            name: 'progress',
+            name: 'category',
             selected: false,
         },
         {
-            name: 'pending',
+            name: 'title',
             selected: false,
         },
         {
-            name: 'complite',
-            selected: false,
-        },
-        {
-            name: 'test',
-            selected: false,
-        },
-        {
-            name: 'bug',
+            name: 'user',
             selected: false,
         },
     ],
@@ -28,21 +18,13 @@ const { statusList } = state;
 function dropdown() {
     const comp = document.querySelector('#dropdown');
     const createMenuItem = statusList.map(status => createList(status.name)).join(' ')
-    comp.innerHTML = `<div id="dropdownBox">
+    comp.innerHTML = `<select id="dropdownBox" name="cars">
                         ${createMenuItem}
-                      </div>`
-
-    let btn = document.getElementsByClassName('btn_box')
-    Array.from(btn).map(item => item.addEventListener("click", consoleText));
+                    </select>`
 }
 
 function createList(value) {
-    return `<div id="dropdown-${value}" class="dropdown_item">${value}</div>`;
-}
-
-function consoleText(evt) {
-    const el = evt.currentTarget
-    console.log(el);
+    return `<option id="dropdown-${value} class="dropdown_item" value="${value}">${value}</option>`;
 }
 
 export default dropdown
