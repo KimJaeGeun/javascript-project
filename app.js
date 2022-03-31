@@ -1,10 +1,10 @@
-import dropdown from './src/components/Dropdown.js'
-import listRender from './src/components/List.js'
+import checkValue from './functions/checkValue.js';
+
 
 
 function app() {
-    new listRender();
-    new dropdown();
+    const comp = document.querySelector('#app');
+    comp.innerHTML = `<h1>${checkValue('test value')}</h1>`;
 }
 
-export default new app(document.querySelector('#app'))
+export default new app()
