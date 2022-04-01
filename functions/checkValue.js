@@ -54,7 +54,7 @@ function isSymbol(value) {
 }
 
 // 체크한 값에 따라 확인된 함수가 무엇인지 돌려주는 함수
-function checkValue(value) {
+function checkType(value) {
 
     // 함수의 배열화
     // TODO: this를 안붙여도 스코프가 들어가는 이유를 알아볼 것
@@ -62,10 +62,10 @@ function checkValue(value) {
 
     for(let i = 0; i < checkFunc.length; i+=1) {
         if(checkFunc[i](value)) {
-            return `checked function is ${checkFunc[i].name}()`;
+            return checkFunc[i].name.split('is')[1];
         }
     }
 };
 
 
-export default checkValue
+export { isNumber, isString, isObject, isArray, isSymbol, checkType }

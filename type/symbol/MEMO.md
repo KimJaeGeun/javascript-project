@@ -10,6 +10,12 @@ console.log(Symbol('temp));
 출력값: Symbol(temp)
 ```
 **Symbol()의 출력값은 String형태가 아닌 Symbol()이라는 고유값이다**
+- 각각의 고유값을 같기에 같은 Symbol이라도 동일한 값을 갖지않는다
+```
+console.log(Symbol('a') == Symbol('a'))
+
+출력값: false
+```
 
 ## 구조
 ```
@@ -37,4 +43,22 @@ Symbol(description)
 > 출력값
 > ```
 > {apple: 'apple', Symbol(banana): 'banana'}
+> ```
+
+2. for...in내에서 열거되지않는다
+> 예시)
+> ```
+> const fruits = {
+>     [Symbol('banana')]: 'banana',
+>     apple: 'apple'
+> };
+>
+> for(const f in fruits) {
+>     console.log(f);
+> }
+> ```
+
+> 출력값
+> ```
+> apple
 > ```
