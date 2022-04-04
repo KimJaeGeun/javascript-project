@@ -42,7 +42,7 @@ function isArray(value) {
         return;
     }
 
-    return typeof value === VALUE.ARRAY;
+    return typeof value === VALUE.OBJECT;
 }
 
 function isSymbol(value) {
