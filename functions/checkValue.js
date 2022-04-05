@@ -68,4 +68,4 @@ function checkType(value) {
 };
 
 
-export { isNumber, isString, isObject, isArray, isSymbol, checkType }
+export { isEmpty, isNumber, isString, isObject, isArray, isSymbol, checkType }
