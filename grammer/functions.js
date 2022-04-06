@@ -1,3 +1,5 @@
+
+// call 함수
 function callFunc() {
     const test = { name: 'jaegeun'}
     const test2 =123
@@ -42,6 +44,10 @@ function getNewItem() {
 }
 
 // value의 크기만큼 중복없이 육안으로 구분 가능한 색상배열 만들기
+/**
+ * getRandmomColor(value)를 다른위치에서 호출하여 사용할때
+ * getRandmomColor(value)의 스코프에 접근 가능하게끔하는 것이 스코프이다(이 경우 매개변수가 외부인자로 작용)
+ * */
 function getRandmomColor(value) {
     let randomColorNum = [];
     let randomColorList = [];
@@ -55,8 +61,11 @@ function getRandmomColor(value) {
 
         for ( let j = 0; j < 3; j +=1) {
             const colorNum = randomColorNum[parseInt(Math.random()*randomColorNum.length)].toString(16)
-
-            color = color.concat(colorNum === 0 ? '00' : colorNum.toString());
+            if (color.indexOf(String(colorNum)) < 0) {
+                color = color.concat(colorNum === 0 ? '00' : String(colorNum));
+            } else {
+                continue;
+            }
         }
 
         const dupliChaeck = randomColorList.filter(item => item !== color)
@@ -70,3 +79,5 @@ function getRandmomColor(value) {
 
     return randomColorList;
 }
+
+export { getRandmomColor }
