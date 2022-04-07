@@ -8,22 +8,24 @@ function testThis() {
     }
     // 엄격모드중 지정이 없다면 undefined를 반환한다.
     console.log(this)
-    // 오브젝트 내장 함수 실행
+    // 오브젝트 내장 함수 실행 && 랙시컬 스코프 보기
     console.log(obj.b())
 }
 
 function testThis2() {
-    const obj = {
-        a: 10,
-        b: {
-            a: 45,
-            b: function () {
-                return this.a
-            }
-        }
+    function getX () {
+        return this.x;
     }
-    // 랙시컬 스코프 보기
-    console.log(obj.b.b())
+    var x = 100;
+
+    (function () {
+        // 'use strict'
+        // 본 예제 함수는 비엄격 모드와 엄격모드의 구분으로 바인딩을 확인하려 했으나 ES6부터 모듈의 모드는 엄격모드이다.
+        console.log(y)
+
+        var y = 0;
+    })();
+
 }
 
 function testThis3() {
@@ -41,4 +43,29 @@ function testThis3() {
       console.log(boundGetX());
 }
 
-export { testThis, testThis2, testThis3 }
+function testThis4() {
+    function test() {
+        console.log(this.a);
+    }
+
+    var obj = {a: 1};
+
+    test.call(obj);
+    // call()을 이용한 명시적 바인딩
+}
+
+function testThis5() {
+    function test(val) {
+        this.a = val
+    }
+
+    var obj = {a: 1};
+
+    test.bind(obj);
+    // this.a = 1
+
+    new test('value');
+    // this.a = 'value'
+}
+
+export { testThis, testThis2, testThis3, testThis4, testThis5 }

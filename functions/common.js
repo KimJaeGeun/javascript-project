@@ -12,7 +12,8 @@ function consoleLog() {
             return tabs[i].style.backgroundColor = color;
         };
     }
-    testThis3();
+
+    testThis2();
 }
 
 export { consoleLog }
