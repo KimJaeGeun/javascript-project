@@ -52,26 +52,51 @@ function getRandmomColor(value) {
     let randomColorNum = [];
     let randomColorList = [];
 
-    for ( let i = 0; i <=255; i+=17 ) {
+    for ( let i = 0; i <=255; i+=34 ) {
         randomColorNum.push(i)
     }
 
-    for (let i = 0; i < value; i+=1 ) {
-        let color = '#'
+    for (let i = 1; i <= value; i+=1 ) {
+        let colorList = new Array(3);
+        const test =randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)]
+        console.log(test)
+        switch(i%7) {
+            case 1 : {
+                colorList[0] = test.toString(16);
+                colorList[1] = '00'
+                colorList[2] = '00'
+            } break;
+            case 2 : {
+                colorList[0] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[1] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[2] = '00'
+            } break;
+            case 3 : {
+                colorList[0] = 'ff'
+                colorList[1] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[2] = '00'
+            } break;
+            case 4 : {
+                colorList[0] = '00'
+                colorList[1] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[2] = '00'
+            } break;
+            case 5 : {
+                colorList[0] = '00';
+                colorList[1] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[2] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+            } break;
+            case 6 : {
+                colorList[0] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[1] = randomColorNum[parseInt((Math.random()*randomColorNum.length) + 4)].toString(16);
+                colorList[2] = 'ff'
+            } break;
 
-        for ( let j = 0; j < 3; j +=1) {
-            const colorNum = randomColorNum[parseInt(Math.random()*randomColorNum.length)].toString(16)
-            if (color.indexOf(String(colorNum)) < 0) {
-                color = color.concat(colorNum === 0 ? '00' : String(colorNum));
-            } else {
-                continue;
-            }
         }
-
-        const dupliChaeck = randomColorList.filter(item => item !== color)
+        const dupliChaeck = randomColorList.filter(item => item !== colorList)
 
         if (dupliChaeck) {
-            randomColorList.push(color)
+            randomColorList.push(`#${colorList[0]}${colorList[1]}${colorList[2]}`)
         } else {
             i--;
         }
