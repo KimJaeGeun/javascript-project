@@ -1,4 +1,4 @@
-import {getRandmomColor} from '../grammer/functions.js'
+import getRandmomColor from '../research/randomColor.js'
 import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
 
 function consoleLog() {
@@ -19,15 +19,13 @@ function clickTest() {
     }
 }
 
-function testCode() {
-    const comp = document.querySelector('#app');
-    const colorList = getRandmomColor(12);
-
+function testCode(comp) {
+    const colorList = getRandmomColor(10);
+    console.log(colorList)
     for(let i = 0; i < colorList.length; i+=1) {
-        comp.innerHTML = `<div style="width: 200px; height: 50px; background-color: ${colorList[i]};" />`;
+        comp.innerHTML += `<div style="width: 200px; height: 50px; background-color: ${colorList[i]};">test${i}</div>`;
     }
 }
-
 
 
 export { consoleLog, clickTest, testCode }

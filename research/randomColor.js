@@ -7,14 +7,14 @@ function getRandmomColor(value) {
     let colorList = [];
 
     const initColorList = [
-        '#FF0000', // red에서 17씩-, 118 <= x (8) parseInt(startNum / i) (i < 17)
-        '#FF6600', // red에서 17씩-, 118 <= x (8)
-        '#FFFF00', // red에서 17씩-, 118 <= x (8)
-        '#00FF00', // blue에서 30씩 +, 255<= x (8)
-        '#0000FF', // red에서 30씩 +, 118 <= x (8)
+        'FF0000', // red에서 17씩-, 118 <= x (8) parseInt(startNum / i) (i < 17)
+        'FF6600', // red에서 17씩-, 118 <= x (8)
+        'FFFF00', // red에서 17씩-, 118 <= x (8)
+        '00FF00', // blue에서 30씩 +, 255<= x (8)
+        '0000FF', // red에서 30씩 +, 118 <= x (8)
     ]
     const calColor = (color, changeVal) => {
-        (parseInt(color, 16) + changeVal).toString(16)
+        return (parseInt(color, 16) + changeVal).toString(16)
     }
 
     // 초기 색상값안에서 결정
@@ -24,30 +24,38 @@ function getRandmomColor(value) {
         }
     } else {
         for (let i = 0; i < value; i+=1) {
-            if (i <= initColorList.length) {
-                colorList.push(initColorList[i])
+            if (i < initColorList.length) {
+                colorList.push(`#${initColorList[i]}`)
             } else {
-                let initColorNum1 = null;
-                let initColorNum2 = null;
+                const getColorArray = i % initColorList.length
+                let pushColor = null; // 더해질 색상
+                let r = null; // 빨간색
+                let g = null; // 초록색
+                let b = null; // 파란색
+                let initColorNum = null; // 색상 조절수치
 
-                let getColorArray = i % initColorList.length
-                let pushColor = null;
 
-                let r = null;
-                let g = null;
-                let b = null;
+                // 색상 조절수치 조정
+                (getColorArray > 3) ? initColorNum = 30 : initColorNum = 17;
 
-                initColorNum = ((i % initColorList.length) > 3) ? initColorNum2 = 30 : initColorNum1 = 17;
 
                 switch(getColorArray) {
-                    case 3: {}
+                    case 3: {
+                        r = initColorList[getColorArray].substring(0,2);
+                        g = initColorList[getColorArray].substring(2,4);
+                        b = calColor(initColorList[getColorArray].substring(4,6), initColorNum);
+                    }
                         break;
-                    case 4: {}
+                    case 4: {
+                        r = calColor(initColorList[getColorArray].substring(0,2), initColorNum);
+                        g = initColorList[getColorArray].substring(2,4);
+                        b = initColorList[getColorArray].substring(4,6);
+                    }
                         break;
                     default: {
-                        r = calColor(initColorList[getColorArray].substring(0,1), -initColorNum1);
-                        g = initColorList[getColorArray].substring(2,3);
-                        b = initColorList[getColorArray].substring(4,5);
+                        r = calColor(initColorList[getColorArray].substring(0,2), -initColorNum);
+                        g = initColorList[getColorArray].substring(2,4);
+                        b = initColorList[getColorArray].substring(4,6);
                     }
 
                 }

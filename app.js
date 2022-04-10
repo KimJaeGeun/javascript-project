@@ -3,7 +3,7 @@ import { testCode } from './functions/common.js'
 
 
 function app() {
-    testCode();
+    new testCode(document.querySelector('#app'))
 }
 
 export default new app()
