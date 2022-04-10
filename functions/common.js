@@ -1,9 +1,22 @@
 import getRandmomColor from '../research/randomColor.js'
 import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
+import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../grammer/object/functions.js'
+
+// getter, setter정의
+
 
 function consoleLog() {
+    const obj = {
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value3',
+        key4: 'value4',
+        key5: 'value5',
+    }
 
-    testThis2();
+    for(let i of obj){
+        console.log(i)
+    }
 }
 
 function clickTest() {

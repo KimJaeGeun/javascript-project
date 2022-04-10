@@ -7,9 +7,17 @@
 - 작성된 목차중 링크가 있는 항목은 공부가 완료된 것
 
 ## 목차
-1. 타입
-   1. [Number](type\number\MEMO.md)
-   2. [String](type\number\MEMO.md)
-   3. Object
-   4. Array
-   5. [Symbol](type\symbol\MEMO.md)
+1. 타입(null, undefined는 생략)
+   1. [Number](https://github.com/KimJaeGeun/javascript-project/tree/main/type/number)
+   2. [String](https://github.com/KimJaeGeun/javascript-project/tree/main/type/string)
+   3. [Object](https://github.com/KimJaeGeun/javascript-project/tree/main/type/object)
+   4. [Array](https://github.com/KimJaeGeun/javascript-project/tree/main/type/array)
+   5. [Symbol](https://github.com/KimJaeGeun/javascript-project/tree/main/type/symbol)
+2. 문법
+   1. [반복문](https://github.com/KimJaeGeun/javascript-project/blob/main/grammer/LOOP.md)
+   2. [조건문](https://github.com/KimJaeGeun/javascript-project/blob/main/grammer/CONDITION.md)
+   3. [스코프]()
+   4. [클로저]()
+   5. [this](https://github.com/KimJaeGeun/javascript-project/tree/main/grammer/this)
+3. 객체
+   1. 
