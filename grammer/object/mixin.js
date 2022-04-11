@@ -41,8 +41,12 @@ const ninja = mixin(Horse, {
 
 // 기생적 mixin
 // 새로운 객체에 mixin한뒤 새로이 인스턴스를 선언하여 사용
+function animal() {
+    this.heart = 1
+}
+
 function sunbi() {
-    const saram = new Horse();
+    const saram = new animal();
     saram.heart = 1;
     saram.run = function () {
         saram.run();

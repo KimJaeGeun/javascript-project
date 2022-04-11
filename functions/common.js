@@ -4,8 +4,21 @@ import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../gram
 import  { ninja, testSunbi } from '../grammer/object/mixin.js'
 
 function consoleLog() {
-    ninja.run();
-    // console.log(t);
+    function objA() {
+        this.a = 'value A'
+    }
+    objA.prototype.AA = function() {
+        return this.a
+    }
+
+    function objB(a,b) {
+        this.a = a
+        this.b = 'value' + b
+    }
+
+    // objB = objA;
+    objB.prototype = Object.create(objA.prototype);
+    console.log(new objB('aaa', 'bbb').b);
 }
 
 
