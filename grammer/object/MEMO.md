@@ -113,21 +113,57 @@
     - 객체간의 프로토타입의 링크는 상속과도 비슷한 효과를 꾀할 수 있다.
 - 직접적인 각 객체의 프로토타입간의 할당은 링크가 된 상태와는 다르다.
 ```
-    function objA() {
-        this.a = 'value A'
-    }
-    objA.prototype.AA = function() {
-        return this.a
-    }
+function objA() {
+    this.a = 'value A'
+}
+objA.prototype.AA = function() {
+    return this.a
+}
 
-    function objB(a,b) {
-        this.a = a
-        this.b = 'value' + b
-    }
+function objB(a,b) {
+    this.a = a
+    this.b = 'value' + b
+}
 
-    // objB = objA;
-    objB.prototype = Object.create(objA.prototype);
-    console.log(new objB('aaa').AA());
+// objB = objA;
+objB.prototype = Object.create(objA.prototype);
+console.log(new objB('aaa').AA());
+// 함수객체의 프로토타입 상속
 ```
 
 - [참조](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+
+
+## 객체의 프로토타입 상속
+- 객체의 getter, setter를 활용
+```
+const saram = {
+    eat: () => {
+        console.log('먹다')
+    }
+}
+
+const korean = {
+    food: '매운맛',
+    _proto_: saram
+    // saram객체의 프로토타입과 링크, saram의 프로퍼티를 사용할 수 있다.
+}
+console.log(Object.getPrototypeOf(Object.create(korean)) === korean)
+// Object.create(korean) => korean프로토타입과 링크된 객체 반환
+// Object.getPrototypeOf()해당 객체의 프로토타입을 반환하는 객체
+// korean과 링크된 객체의 프로토타입은 korean이므로 true
+```
+
+## 상속관계의 객체관의 관계조사
+- a.isPrototypeOf(b)
+    - a객체안에 b와의 프로토타입 링크관계가 있는가?(a가 상속받는, b가 상속해주는)
+```
+상기 예시 객체
+
+// korean객체 내부에 saram과의 링크가 있으므로 true
+console.log(korean.isPrototypeOf(saram))
+
+// saram객체 내부에 korean과의 링크가 없으므로 false
+console.log(saram.isPrototypeOf(korean))
+```
+TODO: 상속관계로 이루어진 오리지날 함수 작성
