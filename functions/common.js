@@ -2,26 +2,10 @@ import getRandmomColor from '../research/randomColor.js'
 import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
 import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../grammer/object/propertyDescription.js'
 import  { ninja, testSunbi } from '../grammer/object/mixin.js'
+import { delegateObj } from '../grammer/object/class.js'
 
 function consoleLog() {
-    const saram = {
-        eat: () => {
-            console.log('먹다')
-        }
-    }
-
-    const korean = {
-        food: '매운맛',
-        _proto_: saram
-        // saram객체의 프로토타입과 링크, saram의 프로퍼티를 사용할 수 있다.
-    }
-
-    const japanese = Object.create(saram)
-    console.log(japanese)
-    // Object.create(korean) => korean프로토타입과 링크된 객체 반환
-    // Object.getPrototypeOf()해당 객체의 프로토타입을 반환하는 객체
-    // korean과 링크된 객체의 프로토타입은 korean이므로 true
-
+    delegateObj();
 }
 
 
