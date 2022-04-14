@@ -5,16 +5,34 @@ import  { ninja, testSunbi } from '../grammer/object/mixin.js'
 import { delegateObj } from '../grammer/object/class.js'
 import { asyncFunc } from '../grammer/async/functions.js'
 
-async function consoleLog() {
-    // asyncFunc();
+function consoleLog() {
 
-   const s5 = () => setTimeout(console.log('5s'), 5000);
-   const s1 = () => setTimeout(console.log('1s'), 1000);
 
-   s5();
-   await new Promise(() => setTimeout(console.log('3s'), 3000));
-   s1();
-   // TODO: s1이 출력되지않는 이유는?
+
+
+    const old = 18;
+
+    function speedCal() {
+        if (15 < old && old < 30) {
+            return old/2;
+        }
+        return 5;
+    }
+
+    function shout() {
+        setTimeout(
+            function () {
+                console.log('호옹이!')
+            }, 5000);
+    }
+
+    function run(who, speed, shout) {
+        console.log(`${who}가 초속${speed()}m 로 달린다`)
+        shout();
+    }
+
+    run('누군가', speedCal, shout);
+
 }
 
 
