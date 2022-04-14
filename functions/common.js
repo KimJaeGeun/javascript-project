@@ -3,36 +3,10 @@ import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
 import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../grammer/object/propertyDescription.js'
 import  { ninja, testSunbi } from '../grammer/object/mixin.js'
 import { delegateObj } from '../grammer/object/class.js'
-import { asyncFunc } from '../grammer/async/functions.js'
+import { asyncFunc, examPromise } from '../grammer/async/functions.js'
 
 function consoleLog() {
-
-
-
-
-    const old = 18;
-
-    function speedCal() {
-        if (15 < old && old < 30) {
-            return old/2;
-        }
-        return 5;
-    }
-
-    function shout() {
-        setTimeout(
-            function () {
-                console.log('호옹이!')
-            }, 5000);
-    }
-
-    function run(who, speed, shout) {
-        console.log(`${who}가 초속${speed()}m 로 달린다`)
-        shout();
-    }
-
-    run('누군가', speedCal, shout);
-
+    examPromise();
 }
 
 
