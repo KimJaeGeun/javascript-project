@@ -3,10 +3,10 @@ import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
 import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../grammer/object/propertyDescription.js'
 import  { ninja, testSunbi } from '../grammer/object/mixin.js'
 import { delegateObj } from '../grammer/object/class.js'
-import { asyncFunc, examPromise } from '../grammer/async/functions.js'
+import { asyncFunc, examPromise, examMultiPromise } from '../grammer/async/functions.js'
 
 function consoleLog() {
-    examPromise();
+    examMultiPromise();
 }
 
 
