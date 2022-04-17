@@ -101,4 +101,21 @@ function examMultiPromise() {
 
 }
 
-export { asyncFunc, examPromise, examMultiPromise }
+function examErrorPromise() {
+  function errorHandle(e) {
+    console.log(e);
+    // 프로미스 내부에서 발생한 에러 표시
+    // 이 곳에서 일어나는 에러처리는?
+  }
+
+  let errorPromise = Promise.resolve(12345);
+
+  errorPromise.then(
+    function fulfilled(msg) {
+      console.log(msg.toLowerCase());
+    }
+  ).catch(errorHandle);
+
+}
+
+export { asyncFunc, examPromise, examMultiPromise, examErrorPromise }
