@@ -68,3 +68,23 @@
     2. catch(): reject() 메서드가 호출로,에러를 확인하는 함수
 - catch()로 에러처리를 받으면 되나, 해당 에러처리내에서 출현하는 에러에 관하여는 처리가 어렵다.
 
+
+## 제너레이터
+- 완전 실행 함수가 아닌 도중이 존재하는 함수
+- 제너레이터 함수 사용 과정
+    1. 제너레이터 함수 ())을 선언
+        ```
+        function* name() {
+            yield;
+        }
+        ```
+    2. 해당 함수를 사용할 이터레이터를 선언
+        ```
+        const gen = name();
+        ```
+    3. 이터레이터에 실행 함수를 붙여 사용
+        - ex) next(), return(), throw()...
+    [참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Generator/next)
+- next() 하나의 실행은 yeild 하나의 실행을 의미한다.
+    - next()실행 시 최초의 yeild를 실행한다.
+- yeild는 해당 제너레이터의 도중의 return값을 의미하며, yeild값이 지정되지않은 경우 return;과도 같다.

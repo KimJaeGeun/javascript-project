@@ -19,5 +19,5 @@
    3. [스코프]()
    4. [클로저]()
    5. [this](https://github.com/KimJaeGeun/javascript-project/tree/main/grammer/this)
-3. 객체
-   1. 
+3. [객체, 클래스, 믹스인]()
+4. [동기, 비동기]()
