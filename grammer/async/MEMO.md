@@ -71,6 +71,11 @@
 
 ## 제너레이터
 - 완전 실행 함수가 아닌 도중이 존재하는 함수
+- **이터레이터**: 제너레이터 함수를 사용 할 수 있게끔 만든 객체
+    - 이터러블: 순회가능한 이터레이터객체
+    - [Symbol.iterator](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)
+        - 순회가 가능하며, 제너레이터함수 내에서는 yeild와의 조우가 함수의 도중을 의미하므로 함수스코프 내에서 상태값을 운용할 수 있다.
+        - while true문과 같지만 yeild로 일시정지가 된다는 점?
 - 제너레이터 함수 사용 과정
     1. 제너레이터 함수 ())을 선언
         ```
@@ -88,3 +93,16 @@
 - next() 하나의 실행은 yeild 하나의 실행을 의미한다.
     - next()실행 시 최초의 yeild를 실행한다.
 - yeild는 해당 제너레이터의 도중의 return값을 의미하며, yeild값이 지정되지않은 경우 return;과도 같다.
+- api 호출과 같은 비동기 함수를 제너레이터로 받은뒤, try catch로 해당 지점의 에러를 catch할 수 있다.
+    ```
+    // 비동기 호출 함수를 일단 받아두는 것
+    try {
+        // next()로 실행한뒤 일시 정지
+        const it = yield func();
+
+        console.log(it)
+
+    } catch(e) {
+        console.log('받은 뒤 문제가 있는것이라면?)
+    }
+    ```

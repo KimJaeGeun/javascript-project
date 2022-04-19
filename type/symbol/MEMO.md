@@ -62,3 +62,7 @@ Symbol(description)
 > ```
 > apple
 > ```
+
+## Symbol.iterator
+- 기본 이터레이터를 지정하는 상용심볼
+    - **상용심볼**: 특별한 용도를 위해 지정된 심볼

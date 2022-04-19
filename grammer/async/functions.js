@@ -192,4 +192,68 @@ function examInterGenerrator() {
 
 }
 
-export { asyncFunc, examPromise, examMultiPromise, examErrorPromise, examSeqGenerrator, examInterGenerrator }
+function examIterable (){
+  const a = [1, 3, 5, 7,9];
+  const it = a[Symbol.iterator]();
+  console.log(it.next().value);
+  console.log(it.next().value);
+  console.log(it.next().value);
+  console.log(it.next().value);
+  console.log(it.next().value);
+  console.log(it.next().value);
+
+}
+
+function examIterable2 (){
+  const a = [1, 3, 5, 7, 9];
+  const it = a[Symbol.iterator]();
+
+  for (let i of it) {
+      console.log(i)
+      // it의 크키만큼 돌겠지?
+  }
+
+  // 함수스코프내 상태값을 사용하는 경우
+  function* testGen() {
+    let val;
+
+    try {
+      // 무한순회
+      while (true) {
+        if (val === undefined) {
+          val = 1;
+        } else {
+          val = (3*val);
+        }
+        yield val;
+      }
+    } finally {
+      console.log('루프 끝!')
+    }
+
+  }
+
+  const it2 = testGen();
+
+  for (let i of it2) {
+    // 무힌대로 돈다. it2는 무한을 순회중이기에
+    console.log(i)
+
+    if (i > 500) {
+      // 바로 final로 보내버린다.
+      it2.return();
+    }
+  }
+
+}
+
+export {
+  asyncFunc,
+  examPromise,
+  examMultiPromise,
+  examErrorPromise,
+  examSeqGenerrator,
+  examInterGenerrator,
+  examIterable,
+  examIterable2
+}
