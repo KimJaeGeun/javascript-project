@@ -8,14 +8,19 @@ import {
     examPromise,
     examMultiPromise,
     examErrorPromise,
-    examSeqGenerrator,
-    examInterGenerrator,
-    examIterable,
-    examIterable2
+    examGenerrator,
 } from '../grammer/async/functions.js'
 
 function consoleLog() {
-    examIterable2();
+    function testAwait() {
+        console.log('sss')
+    }
+
+    async function test() {
+        testAwait();
+    }
+
+    test();
 }
 
 

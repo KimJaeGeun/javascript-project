@@ -117,143 +117,139 @@ function examErrorPromise() {
   ).catch(errorHandle);
 
 }
+function examGenerrator() {
+  function examSeqGenerrator() {
+    // 제너레이터 함수
+    function* indexPlus(){
+      let index = 0;
+      console.log('제너레이터 함수애오')
 
-function examSeqGenerrator() {
-  // 제너레이터 함수
-  function* indexPlus(){
-    let index = 0;
-    console.log('제너레이터 함수애오')
+      // next 한번에 yield한번씩
+      // 제네레이터 함수의 yeild는 trturn의 역할을 한다
+      yield index +=1;
+      yield index +=1;
+      yield index +=1;
+  }
+    console.log(indexPlus()) // '제너레이터 함수애오'의 출력만 가능
 
-    // next 한번에 yield한번씩
-    // 제네레이터 함수의 yeild는 trturn의 역할을 한다
-    yield index +=1;
-    yield index +=1;
-    yield index +=1;
-}
-  console.log(indexPlus()) // '제너레이터 함수애오'의 출력만 가능
-
-  // 제너레이터 함수를 사용가능하게끔 하는 이터레이터 객체(yield)
-  const gen = indexPlus();
-  console.log(gen.next().value) // 1
-  console.log(gen.next().value) // 2
-  console.log(gen.next().value) // 3
-  console.log(gen.next().value) // undefined
-}
-
-function examInterGenerrator() {
-  let a = 1;
-  let b = 2;
-
-  function* aPlus() {
-    a++;
-    yield;
-    b = b * a;
-    a = (yield b) + 3;
+    // 제너레이터 함수를 사용가능하게끔 하는 이터레이터 객체(yield)
+    const gen = indexPlus();
+    console.log(gen.next().value) // 1
+    console.log(gen.next().value) // 2
+    console.log(gen.next().value) // 3
+    console.log(gen.next().value) // undefined
   }
 
-  function* bMinus() {
-    b--;
-    yield;
-    a = (yield 8) + b;
-    b = (yield 2) * a;
-  }
+  function examInterGenerrator() {
+    let a = 1;
+    let b = 2;
 
-  function step(gen) {
-    const it = gen();
-    let last;
-
-    return function() {
-      last = it.next(last).value;
+    function* aPlus() {
+      a++;
+      yield;
+      b = b * a;
+      a = (yield b) + 3;
     }
-  }
 
-  const s1 = step( aPlus );
-  const s2 = step( bMinus );
-  const test = bMinus();
+    function* bMinus() {
+      b--;
+      yield;
+      a = (yield 8) + b;
+      b = (yield 2) * a;
+    }
 
-  console.log(test.next().value);
-  console.log(test.next().value);
-  console.log(test.next().value);
-  console.log(test.next().value);
-  console.log(test.next().value);
-  console.log(test.next().value);
-  s2();
-  // s1();
-  // s1();
-  // s1();
+    function step(gen) {
+      const it = gen();
+      let last;
 
-  // s2();
-  // s2();
-  // s2();
-  // s2();
-
-  console.log(a);
-  console.log(b);
-
-}
-
-function examIterable (){
-  const a = [1, 3, 5, 7,9];
-  const it = a[Symbol.iterator]();
-  console.log(it.next().value);
-  console.log(it.next().value);
-  console.log(it.next().value);
-  console.log(it.next().value);
-  console.log(it.next().value);
-  console.log(it.next().value);
-
-}
-
-function examIterable2 (){
-  const a = [1, 3, 5, 7, 9];
-  const it = a[Symbol.iterator]();
-
-  for (let i of it) {
-      console.log(i)
-      // it의 크키만큼 돌겠지?
-  }
-
-  // 함수스코프내 상태값을 사용하는 경우
-  function* testGen() {
-    let val;
-
-    try {
-      // 무한순회
-      while (true) {
-        if (val === undefined) {
-          val = 1;
-        } else {
-          val = (3*val);
-        }
-        yield val;
+      return function() {
+        last = it.next(last).value;
       }
-    } finally {
-      console.log('루프 끝!')
     }
 
+    const s1 = step( aPlus );
+    const s2 = step( bMinus );
+    const test = bMinus();
+
+    console.log(test.next().value);
+    console.log(test.next().value);
+    console.log(test.next().value);
+    console.log(test.next().value);
+    console.log(test.next().value);
+    console.log(test.next().value);
+    s2();
+    // s1();
+    // s1();
+    // s1();
+
+    // s2();
+    // s2();
+    // s2();
+    // s2();
+
+    console.log(a);
+    console.log(b);
   }
 
-  const it2 = testGen();
+  function examIterable (){
+    const a = [1, 3, 5, 7,9];
+    const it = a[Symbol.iterator]();
 
-  for (let i of it2) {
-    // 무힌대로 돈다. it2는 무한을 순회중이기에
-    console.log(i)
+    console.log(it.next().value);
+    console.log(it.next().value);
+    console.log(it.next().value);
+    console.log(it.next().value);
+    console.log(it.next().value);
+    console.log(it.next().value);
+  }
 
-    if (i > 500) {
-      // 바로 final로 보내버린다.
-      it2.return();
+  function examIterable2 (){
+    const a = [1, 3, 5, 7, 9];
+    const it = a[Symbol.iterator]();
+
+    for (let i of it) {
+        console.log(i)
+        // it의 크키만큼 돌겠지?
+    }
+
+    // 함수스코프내 상태값을 사용하는 경우
+    function* testGen() {
+      let val;
+
+      try {
+        // 무한순회
+        while (true) {
+          if (val === undefined) {
+            val = 1;
+          } else {
+            val = (3*val);
+          }
+          yield val;
+        }
+      } finally {
+        console.log('루프 끝!')
+      }
+    }
+
+    const it2 = testGen();
+
+    for (let i of it2) {
+      // 무힌대로 돈다. it2는 무한을 순회중이기에
+      console.log(i)
+
+      if (i > 500) {
+        // 바로 final로 보내버린다.
+        it2.return();
+      }
     }
   }
-
 }
+
 
 export {
   asyncFunc,
   examPromise,
   examMultiPromise,
   examErrorPromise,
-  examSeqGenerrator,
-  examInterGenerrator,
-  examIterable,
-  examIterable2
+  examGenerrator
 }

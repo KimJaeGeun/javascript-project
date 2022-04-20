@@ -106,3 +106,17 @@
         console.log('받은 뒤 문제가 있는것이라면?)
     }
     ```
+
+## **async / await**
+- 상기의 Promise, Generator를 통해 비동기 로직을 작성하였으나 ES8부터 도입된 비동기코드 선언 구문
+- async
+    - async function 객체를 반환하는 비동기 함수 선언식
+    - 화살표 함수에도 선언할 수 있다.
+    - 비동기 함수 선언식이므로, 비동기로써 yield부분을 await로 선언하여 사용한다.
+    - await없이 단독으로 사용 가능하다(허나 의미가 없다.)
+- await
+    - async function내 promise를 yield해주는 역할
+    - 해당 Promise부분에 선언하여 사용
+    - 항상 async function내 사용 가능 하며, 외부인 경우 문법 오류가 발생
+- 중첩이 가능 하며 복수의 promise를 awite할 수 있다.
+    - 이 경우 awaite하는 부분이 모두 완료된 후 다음 코드가 실행된다.
