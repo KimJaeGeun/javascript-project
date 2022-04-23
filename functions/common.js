@@ -1,4 +1,6 @@
+import { OBJ_ARRAY } from '../const.js'
 import getRandmomColor from '../research/randomColor.js'
+import objArraySort from '../research/sort.js'
 import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
 import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../grammer/object/propertyDescription.js'
 import  { ninja, testSunbi } from '../grammer/object/mixin.js'
@@ -11,16 +13,10 @@ import {
     examGenerrator,
 } from '../grammer/async/functions.js'
 
+const testArray = [...OBJ_ARRAY];
+
 function consoleLog() {
-    function testAwait() {
-        console.log('sss')
-    }
-
-    async function test() {
-        testAwait();
-    }
-
-    test();
+    objArraySort(testArray, 'name', 'age');
 }
 
 
