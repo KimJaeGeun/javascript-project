@@ -4,6 +4,12 @@
 - 전역객체로 문자의 나열
 - 문자의 나열이기에 오브젝트, 배열로 취급이 가능
    - **취급이 가능한것이지 타입이 동일한것은 아니다.**
+   - 문자열을 배열화 하여 응용
+      ```
+      const str = "abcd"
+      Array.from(str).reverse().join("")
+      // dcba
+      ```
 - ES5이후 리터럴 템플릿가능
    - ``으로 이루어지며, 문자열과 문자보간기능을 사용 가능
    - [참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)

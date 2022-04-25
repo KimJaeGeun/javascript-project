@@ -12,11 +12,10 @@ import {
     examErrorPromise,
     examGenerrator,
 } from '../grammer/async/functions.js'
-
-const testArray = [...OBJ_ARRAY];
+const test = "qwer"
 
 function consoleLog() {
-    objArraySort(testArray, 'name', 'age');
+    console.log(2==3)
 }
 
 

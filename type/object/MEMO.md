@@ -14,8 +14,12 @@ const testObject =
 
 console.log(testObject);
 
+
 출력값: {key: value}
 ```
+- **함수(function)**
+   - object의 하위타입으로 타입값은 object이다.
+   - 함수내 선언된 인자 갯수는 함수.length로 알 수 있다.(func(a,b,c) -> func.length === 3)
 
 
 ## object 생성
@@ -47,7 +51,7 @@ console.log(booleanObject);
 ```
 
 
-## 함수
+## object 내장 객체(함수)
 - 대표적인 예시만 기술
 ```
 const obj = {

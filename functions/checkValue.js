@@ -4,10 +4,13 @@ import { VALUE } from '../const.js';
 // 값의 형태를 체크하는 것이 아닌 값의 존재를 체크
 // null, undefined, 빈 배열, 빈 객체
 function isEmpty(value) {
-    if (typeof value === VALUE.NULL || typeof value === VALUE.UNDEFINED || value.length === 0) {
-        return true;
+    // empty : 0, NaN, null, undefined, {}, [], ''
+
+    if (typeof value === VALUE.OBJECT) {
+        return !value.length;
     }
-    return false;
+
+    return !value;
 }
 
 // 값의 존재 체크 이유: 값의 형태를 체크하기에 부재한 경우 다른 타입을 돌려줄 가능성 방지
