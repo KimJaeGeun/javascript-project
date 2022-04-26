@@ -1,21 +1,23 @@
 import { OBJ_ARRAY } from '../const.js'
 import getRandmomColor from '../research/randomColor.js'
 import objArraySort from '../research/sort.js'
-import { testThis, testThis2, testThis3 } from '../grammer/this/functions.js'
-import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../grammer/object/propertyDescription.js'
-import  { ninja, testSunbi } from '../grammer/object/mixin.js'
-import { delegateObj } from '../grammer/object/class.js'
+import { testThis, testThis2, testThis3 } from '../syntax/this/functions.js'
+import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../syntax/object/propertyDescription.js'
+import  { ninja, testSunbi } from '../syntax/object/mixin.js'
+import { delegateObj } from '../syntax/object/class.js'
 import {
     asyncFunc,
     examPromise,
     examMultiPromise,
     examErrorPromise,
     examGenerrator,
-} from '../grammer/async/functions.js'
-const test = "qwer"
+} from '../syntax/async/functions.js'
 
 function consoleLog() {
-    console.log(2==3)
+   function testFunc(...parms) {
+        return parms
+   }
+    console.log(testFunc(1, 2, 3, 4, 5))
 }
 
 
