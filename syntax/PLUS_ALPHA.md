@@ -46,3 +46,23 @@ console.log(testArray);
 
     testFunc(1, 2, 3, 4, 5);
     ```
+
+## 클로저란?
+- 랙시컬 스코프의 외부에서 선언되어 실행한 것이 랙시컬 내부로 접근하는 것
+```
+// 어느 특정 함수내 랙시컬 스코프
+function testFunc() {
+    // 함수 스코프 내 선언
+    const a = 0;
+    // 중첩 스코프
+    function hoge() {
+        console.log(a);
+    }
+    hoge();
+}
+
+const callFunc = testFunc();
+
+callFunc();
+// -> 선언된 함수의 외부에서 선언되어 실행되며, 해당 함수내에서 선언한 변수에 접근 및 함수 실행
+```

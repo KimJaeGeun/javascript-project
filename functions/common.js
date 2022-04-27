@@ -12,12 +12,78 @@ import {
     examErrorPromise,
     examGenerrator,
 } from '../syntax/async/functions.js'
+const testArray = [
+    {
+        name: 'aaa',
+        nick: 'a2',
+        num: 98,
+        total: 100
+    },
+    {
+        name: 'aaa',
+        nick: 'a3',
+        num: 10,
+        total: 100
+    },
+    {
+        name: 'bbb',
+        nick: 'b1',
+        num: 680,
+        total: 200
+    },
+    {
+        name: 'ccc',
+        nick: 'c3',
+        num: 40,
+        total: 300
+    },
+    {
+        name: 'ccc',
+        nick: 'c2',
+        num: 56345,
+        total: 300
+    },
+    {
+        name: 'ccc',
+        nick: 'c1',
+        num: 123,
+        total: 300
+    },
+    {
+        name: 'aaa',
+        nick: 'a1',
+        num: 107,
+        total: 100
+    },
+    {
+        name: 'ddd',
+        nick: 'd1',
+        num: 10,
+        total: 400
+    },
+    {
+        name: 'bbb',
+        nick: 'b3',
+        num: 120,
+        total: 200
+    },
+    {
+        name: 'bbb',
+        nick: 'b2',
+        num: 1,
+        total: 200
+    },
 
+]
 function consoleLog() {
-   function testFunc(...parms) {
-        return parms
-   }
-    console.log(testFunc(1, 2, 3, 4, 5))
+    const sortList = testArray.sort(
+        (a, b) =>
+            a['total'] < b['total'] ? -1
+            : a['total'] > b['total'] ? 1
+            : a['num'] < b['num'] ? -1
+            : a['num'] > b['num'] ? 1 : 0
+    ).reverse();
+    console.log(sortList)
 }
 
 
