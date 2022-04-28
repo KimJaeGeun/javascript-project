@@ -171,4 +171,4 @@ TODO: 상속관계로 이루어진 오리지날 함수 작성
 ## 위임(상속) 모델
 - OLOO(object linked to other object): 객체를 다른 객체에게 위임하는 것
     - 객체와의 연결점을 확인하는 것이 좀 편리하다.
-[참조]()
+[참조](https://github.com/KimJaeGeun/javascript-project/blob/main/syntax/object/propertyDescription.js)
