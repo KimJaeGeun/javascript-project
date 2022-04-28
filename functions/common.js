@@ -1,6 +1,6 @@
 import { OBJ_ARRAY } from '../const.js'
 import getRandmomColor from '../research/randomColor.js'
-import objArraySort from '../research/sort.js'
+import { objArraySort, objArraySort2 } from '../research/sort.js'
 import { testThis, testThis2, testThis3 } from '../syntax/this/functions.js'
 import { inputObjectItem, confirmProperty, setPropertyDescriptor } from '../syntax/object/propertyDescription.js'
 import  { ninja, testSunbi } from '../syntax/object/mixin.js'
@@ -12,78 +12,9 @@ import {
     examErrorPromise,
     examGenerrator,
 } from '../syntax/async/functions.js'
-const testArray = [
-    {
-        name: 'aaa',
-        nick: 'a2',
-        num: 98,
-        total: 100
-    },
-    {
-        name: 'aaa',
-        nick: 'a3',
-        num: 10,
-        total: 100
-    },
-    {
-        name: 'bbb',
-        nick: 'b1',
-        num: 680,
-        total: 200
-    },
-    {
-        name: 'ccc',
-        nick: 'c3',
-        num: 40,
-        total: 300
-    },
-    {
-        name: 'ccc',
-        nick: 'c2',
-        num: 56345,
-        total: 300
-    },
-    {
-        name: 'ccc',
-        nick: 'c1',
-        num: 123,
-        total: 300
-    },
-    {
-        name: 'aaa',
-        nick: 'a1',
-        num: 107,
-        total: 100
-    },
-    {
-        name: 'ddd',
-        nick: 'd1',
-        num: 10,
-        total: 400
-    },
-    {
-        name: 'bbb',
-        nick: 'b3',
-        num: 120,
-        total: 200
-    },
-    {
-        name: 'bbb',
-        nick: 'b2',
-        num: 1,
-        total: 200
-    },
 
-]
 function consoleLog() {
-    const sortList = testArray.sort(
-        (a, b) =>
-            a['total'] < b['total'] ? -1
-            : a['total'] > b['total'] ? 1
-            : a['num'] < b['num'] ? -1
-            : a['num'] > b['num'] ? 1 : 0
-    ).reverse();
-    console.log(sortList)
+    
 }
 
 

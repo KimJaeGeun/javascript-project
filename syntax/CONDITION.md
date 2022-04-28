@@ -67,6 +67,7 @@ switch() {
 - ||
    - 비교논리가 값의 경우 존재하는 값이 반환
    - 양쪽 값이 존재하는 경우 처음 존재하는 값이 반환
+   - 첫 비교값이 null, undefined인 경우 0을 반환
 ```
 console.log(10 && 'test')
 
@@ -76,4 +77,15 @@ console.log(10 || 'test')
 
 출력값: 10
 
+```
+
+## null 병합
+- ||와 비슷하나 첫 비교값이 null, undefined인 경우 그 다음 값을 반환
+```
+const test = undefined; //null
+const testnull = test ?? 10;
+
+console.log(testnull);
+
+출력값: 10
 ```

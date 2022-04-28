@@ -4,6 +4,10 @@
 - 자기 참조 변수로 참조하는 객체, 생성되는 객체를 의미한다.
 - this가 나타내는 것은 함수의 호출방식에 따라 달라진다.
 [참조](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this#try_it)
+   - parseInt등의 함수가 실행되는 것은 기본적인 this는 암시적으로 window를 뜻한다.(console로 찍어보여는 순간 호출부가 정해지기에 undefined를 반환한다.)
+      - 명시적으로 globalThis가 있다.(ES11)
+      - globalThis === window
+   - window의 경우 타입, 기타 함수등의 객체를 모두 포함하고 있다.
 
 ## 호출부의 바인딩 규칙
 1. 기본바인딩
