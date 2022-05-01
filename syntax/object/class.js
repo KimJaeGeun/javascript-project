@@ -28,7 +28,7 @@ function delegateObj() {
     // saram객체를 korean에게 위임한, 객체에서 객체를 위임한 OLOO스타일이다.
 }
 
-//TODO: ES6도입의 클래 사용
-//TODO: OLOO스타일의 객체형 함수 작성
+// class를 이용하여 어느 특정 컴포넌트를 작성하려 한다면, defult컴포넌트 작성후 props에 따른 분기처리로 만들면 될듯 하다.
+// class로는 default 함수등을 작성할때 사용 할듯
 
 export { delegateObj }

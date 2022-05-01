@@ -67,6 +67,20 @@
         - then내에서 인자를 사용하여 에러를 확인은 가능하나 그러는 의미가 없다.
     2. catch(): reject() 메서드가 호출로,에러를 확인하는 함수
 - catch()로 에러처리를 받으면 되나, 해당 에러처리내에서 출현하는 에러에 관하여는 처리가 어렵다.
+-**Promise.allSettled()**
+    - promise().then().catch()의 경우 promise의 결과에 따라 then, catch를 실행하나, allSettled()의 경우에는 각각의 상태값을 배열로 나타낸다.
+    - catch()의 경우는 실행되지않으며, 각 promise의 상태를 then을 통하여 배열로 내보낸다.
+    ```
+    let promise1 = Promise.resolve("OK");
+    let promise2 = Promise.reject("Not OK");
+    let promise3 = Promise.resolve("After not ok");
+    Promise.allSettled([promise1, promise2, promise3])
+        .then((results) => console.log(results))
+        .catch((err) => console.log("error: " + err));
+    // [{status: 'fulfilled', value: 'OK'},
+        {status: 'rejected', reason: 'Not OK'},
+        {status: 'fulfilled', value: 'After not ok'}]
+    ```
 
 
 ## 제너레이터
@@ -120,3 +134,6 @@
     - 항상 async function내 사용 가능 하며, 외부인 경우 문법 오류가 발생
 - 중첩이 가능 하며 복수의 promise를 awite할 수 있다.
     - 이 경우 awaite하는 부분이 모두 완료된 후 다음 코드가 실행된다.
+
+- **동적으로 모듈 가져오기**
+    - await import()로 async함수내에서 동적으로 사용
