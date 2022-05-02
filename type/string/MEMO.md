@@ -12,6 +12,7 @@
       ```
 - ES5이후 리터럴 템플릿가능
    - ``으로 이루어지며, 문자열과 문자보간기능을 사용 가능
+      - 보간 표현식 내부 플레이스 홀더(${...})를 사용하여 변수 및 표현식의 결과값을 표현 가능
    - [참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)
 - 특수문자의 경우 이스케이프 표현을 사용하여 표현
    - [참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String#%EC%9D%B4%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%94%84_%ED%91%9C%ED%98%84)

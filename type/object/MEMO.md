@@ -20,6 +20,7 @@ console.log(testObject);
 - **함수(function)**
    - object의 하위타입으로 타입값은 object이다.
    - 함수내 선언된 인자 갯수는 함수.length로 알 수 있다.(func(a,b,c) -> func.length === 3)
+   - 객체이 프로퍼티가 함수인 경우 **메서드**라 지칭
 
 
 ## object 생성

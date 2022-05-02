@@ -12,14 +12,10 @@ import {
     examErrorPromise,
     examGenerrator,
 } from '../syntax/async/functions.js'
+import { checkString, escapeEmoji } from '../type/string/functions.js'
 
 function consoleLog() {
-    let promise1 = Promise.resolve("OK");
-let promise2 = Promise.reject("Not OK");
-let promise3 = Promise.resolve("After not ok");
-Promise.allSettled([promise1, promise2, promise3])
-    .then((results) => console.log(results))
-    .catch((err) => console.log("error: " + err));
+    console.log(escapeEmoji());
 }
 
 
